@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.study.mybatis.repository.ProductMapper">
+    <select id="selectProductById" resultType="Product">
+        SELECT  Prod_id, prod_name, Prod_price
+        FROM    PRODUCTS
+        WHERE   prod_id = #{prodId}
+    </select>
+
+    <select id="selectAllProducts" resultType="Product">
+        SELECT  prod_Id, prod_name, prod_price
+        FROM    PRODUCTS
+    </select>
+
+    <select id="insertProduct" resultType="Product">
+        INSERT INTO PRODUCTS (prod_name, prod_price)
+        VALUES ( #{prodName}, #{prodPrice} )
+    </select>
+</mapper>
